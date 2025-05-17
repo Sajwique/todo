@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* min-height: ; */
+}
+
+.nav {
+  background: #444444;
+  color: #eee;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.todo-input {
+  width: 550px;
+  background: #ffff;
+  border: 1px solid #eee;
+  margin: 70px auto;
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+  padding: 7px 0;
+}
+.todo-input-col {
+  /* padding-top: 10px; */
+}
+
+.todo-input-col > input {
+  width: 88%;
+  border: none;
+  outline: none;
+  height: 30px;
+  font-size: 16px;
+  padding-left: 15px;
+  font-weight: 500;
+}
+.todo-input-col > button {
+  width: 50px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#todo-desc {
+  display: none;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+.last-button-box {
+  float: right;
+  display: flex;
+  gap: 5px;
+}
+.close-button,
+.save-button {
+  display: none;
+  border: none;
+  padding: 5px 13px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 8px;
+  background-color: #ffff;
+  /* color: #eee; */
+}
+.close-button:hover,
+.save-button:hover {
+  margin-right: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+/* todo-card */
+.all-todos-show {
+  width: 50%;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  gap: 20px;
+}
+.todo-card {
+  padding: 10px 7px;
+  border-radius: 8px;
+  border: 1px solid #efef;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.todo-card > p {
+  padding-top: 7px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo: create todo with flash card</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav">
+        <p>Create a Todo</p>
+      </div>
+    </nav>
+    <div class="body">
+      <div class="sidebar"></div>
+      <div class="container">
+        <div class="todo-input">
+          <div class="todo-input-col">
+            <input
+              type="text"
+              id="todo-input"
+              class="todo-title-input"
+              placeholder="Take a note here...."
+            />
+            <input type="text" id="todo-desc" placeholder="" />
+            <button class="list-button">list</button>
+          </div>
+          <div class="last-button-box">
+            <button class="save-button">Save</button>
+            <button class="close-button">Close</button>
+          </div>
+        </div>
+
+        <div class="all-todos-show"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
