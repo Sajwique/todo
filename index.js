@@ -39,15 +39,19 @@ document.querySelector(".save-button").addEventListener("click", function () {
   const todoTitleInput = document.querySelector(".todo-title-input");
   const descInput = document.querySelector("#todo-desc");
 
-  const todo = [
-    {
-      title: todoTitleInput.value,
-      desc: descInput.value,
-      isDone: false,
-    },
-  ];
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-  localStorage.setItem("todos", JSON.stringify(todo));
+  const isTodoAlreadyExitsWithTitle = todos.find(
+    (todo) => todo.title === todoTitleInput.value
+  );
+
+  todos.push({
+    title: todoTitleInput.value,
+    desc: descInput.value,
+    isDone: false,
+  });
+
+  localStorage.setItem("todos", JSON.stringify(todos));
   todoTitleInput.value = "";
   descInput.value = "";
   addTodosInTheDom();
