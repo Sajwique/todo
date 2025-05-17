@@ -31,6 +31,27 @@ function closeButton() {
   saveButton.style.display = "none";
   todoDiv.style.minHeight = "30px";
 }
+
+function cancelError() {
+  const errorDiv = document.querySelector(".error");
+  errorDiv.style.display = "none";
+}
+
+function showError(message) {
+  const errorDiv = document.querySelector(".error");
+  errorDiv.style.display = "block";
+  const p = document.createElement("p");
+  p.innerText = message;
+  errorDiv.append(p);
+
+  let timerId = "";
+  console.log(timerId);
+  timerId = setTimeout(cancelError, 3000);
+  //   if (timerId) {
+  //     clearTimeout(timerId);
+  //   }
+}
+
 document
   .querySelector(".close-button")
   .addEventListener("mouseup", closeButton);
@@ -39,23 +60,33 @@ document.querySelector(".save-button").addEventListener("click", function () {
   const todoTitleInput = document.querySelector(".todo-title-input");
   const descInput = document.querySelector("#todo-desc");
 
-  let todos = JSON.parse(localStorage.getItem("todos")) || [];
+  let todos = [];
 
-  const isTodoAlreadyExitsWithTitle = todos.find(
-    (todo) => todo.title === todoTitleInput.value
+  const checkTodoTitlePresent = JSON.parse(localStorage.getItem("todos")) || [];
+  const isTodoAlreadyExitsWithTitle = checkTodoTitlePresent.find(
+    (todo) =>
+      todo.title === todoTitleInput.value && todo.desc === descInput.value
   );
 
-  todos.push({
-    title: todoTitleInput.value,
-    desc: descInput.value,
-    isDone: false,
-  });
+  if (isTodoAlreadyExitsWithTitle) {
+    closeButton();
+    todoTitleInput.value = "";
+    descInput.value = "";
+    showError("title already present");
+    return;
+  } else {
+    todos.push({
+      title: todoTitleInput.value,
+      desc: descInput.value,
+      isDone: false,
+    });
 
-  localStorage.setItem("todos", JSON.stringify(todos));
-  todoTitleInput.value = "";
-  descInput.value = "";
-  addTodosInTheDom();
-  closeButton();
+    localStorage.setItem("todos", JSON.stringify(todos));
+    todoTitleInput.value = "";
+    descInput.value = "";
+    addTodosInTheDom();
+    closeButton();
+  }
 });
 
 function addTodosInTheDom() {

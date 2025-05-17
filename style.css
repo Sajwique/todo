@@ -91,3 +91,13 @@
 .todo-card > p {
   padding-top: 7px;
 }
+
+.error {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  color: red;
+  display: none;
+}
